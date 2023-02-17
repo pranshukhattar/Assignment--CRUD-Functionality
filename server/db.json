@@ -1,0 +1,31 @@
+{
+    "users": {
+        "fghjkvbh@email": {
+            "idCount": 0,
+            "files": [
+                {
+                    "fileId": 1,
+                    "url": "qwertyuio"
+                }
+            ]
+        },
+        "lkjhgfdfghj@email": {
+            "idCount": 0,
+            "files": [
+                {
+                    "fileId": 1,
+                    "url": "qwertyuio"
+                }
+            ]
+        },
+        "aswertet@email": {
+            "idCount": 1,
+            "files": [
+                {
+                    "fileId": 1,
+                    "url": "qwertyuio"
+                }
+            ]
+        }
+    }
+}

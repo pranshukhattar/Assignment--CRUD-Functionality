@@ -1,0 +1,42 @@
+// Client ID : 457048656423-5jje1n3o9a2vsvhadq90ej86rjlsjhdk.apps.googleusercontent.com
+// Client Secret : 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
+
+<section class="progress-area">
+        <li class="row">
+            <i class="ri-file-3-fill"></i>
+            <div class="content">
+                <div class="details">
+                    <span class="name">File One</span>
+                    <span class="percent">50%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress">
+                    </div>
+                </div>
+            </div>
+        </li>
+    </section>
+
+.progress-area .row .content{
+        width: 100%;
+        margin-left: 15px;
+    }
+    .progress-area .details{
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+        justify-content: space-between;
+    }
+    .progress-area .content .progress-bar{
+        height: 6px;
+        width: 100%;
+        margin-bottom: 4px;
+        background: #fff;
+        border-radius: 30px;
+    }
+    .content .progress-bar .progress{
+        height: 100%;
+        width: 0%;
+        background: var(--main);
+        border-radius: inherit;
+    }
