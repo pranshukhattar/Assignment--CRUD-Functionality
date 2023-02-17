@@ -1,6 +1,6 @@
 <template>
     <div class="button-wrapper">
-        <button v-if="!userEmail" type="button" class="google-btn" :class="{ notActive : isLogged}" @click="handleSignIn">
+        <button v-if="is" type="button" class="google-btn" :class="{ notActive : isLogged}" @click="handleSignIn">
             {{userEmail}}
             Sign in with Google
         </button>
@@ -21,12 +21,12 @@ import { useGlobalStore } from '../../stores/Global'
         userEmail: '',
         }
     },
-    // setup(props) {
-    //         const global = useGlobalStore()
-    //         global.email = userEmail
-    //         // global.login(this.email)
-    //         // return { global }
-    //     },
+    setup(props) {
+            const global = useGlobalStore()
+            global.email = userEmail
+            global.isLoggedIn = true
+
+        },
     
 
     methods: {

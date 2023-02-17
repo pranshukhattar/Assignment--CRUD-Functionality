@@ -45,10 +45,11 @@ function jsonReader(filePath, cb){
     })
 }
 
-function fileData(count, url){
+function fileData(count, filename,url){
     console.log('Inside FileData')
     return {
         "fileId": count+1,
+        "fileName": filename,
         "url" : url
     }
 }
@@ -63,14 +64,14 @@ function createUser(email){
     return obj
 }
 
-function addfile(email, data, uri){
+function addfile(email, data, filename, uri){
     console.log('Inside AddFile')
     const oldUser = email in data.users
     if(oldUser){
         console.log('Inside AddFileif')
         const count = data.users[email].idCount
         const files = data.users[email].files
-        const newData = fileData(count, uri)
+        const newData = fileData(count, filename,uri)
         files.push(newData)
         console.log("files inside addfile",data)
         return data
@@ -83,7 +84,7 @@ function addfile(email, data, uri){
     }
 }
 
-function save_file(email, uri){
+function save_file(email, filename ,uri){
     jsonReader ('./db.json', (err,data) => {
         if(err){
             return err
@@ -91,7 +92,7 @@ function save_file(email, uri){
         else {
             // const ob = data.users
             // console.log('JsonReader CAllback : ' ,ob)
-            const update = addfile(email, data, uri)
+            const update = addfile(email, data, filename, uri)
             fs.writeFile("./db.json", JSON.stringify(data), err =>{
                 if(err) console.log(err)
                 console.log('Done Writing ---- Json file is updated')
