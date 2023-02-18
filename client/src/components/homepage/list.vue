@@ -6,8 +6,10 @@
             <i class="ri-file-3-fill"></i>
                 <div class="details">
                     <span class="name">
-                        <a href="">
-                            {{ name }}
+                        <a href="/login">
+                            {{ url }}
+                            {{ file.fileName }}
+                            <!-- {{ file }} -->
                             <!-- <i class="ri-checkbox-blank-circle-fill"></i>  -->
                             - Uploaded
                         </a>
@@ -25,12 +27,18 @@
 </template>
 
 <script>
+import { useGlobalStore } from '../../stores/Global'
     export default {
+        props: {
+            file : null,
+        },
         data() {
             return {
-                name: 'file.type',
-                size: '200 kb'
+                url : ''
             }
+        },
+        setup(props) {
+            const global = useGlobalStore()
         },
         components : {
         }
@@ -41,6 +49,7 @@
     .wrapper{
         max-width: 500px;
         color: var(--main);
+        overflow: hidden
         /* background: #fff; */
     }
     section .row{
@@ -62,7 +71,7 @@
     }
     .uploaded-area{
         max-height: 230px;
-        overflow-y: scroll;
+        /* overflow-y: scroll; */
     }
     .uploaded-area .onprogress{
         max-height: 150px;

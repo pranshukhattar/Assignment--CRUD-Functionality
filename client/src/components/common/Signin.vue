@@ -1,10 +1,10 @@
 <template>
     <div class="button-wrapper">
-        <button v-if="is" type="button" class="google-btn" :class="{ notActive : isLogged}" @click="handleSignIn">
-            {{userEmail}}
+        <button v-if="!isLoggedIn" type="button" class="google-btn" :class="{ notActive : isLogged}" @click="handleSignIn">
             Sign in with Google
         </button>
-        <button type="button" v-else @click="handleSignOut">
+        <button type="button" v-if="isLoggedIn" @click="handleSignOut">
+            {{userEmail}}
             Sign Out
         </button>
     </div>
@@ -21,14 +21,7 @@ import { useGlobalStore } from '../../stores/Global'
         userEmail: '',
         }
     },
-    setup(props) {
-            const global = useGlobalStore()
-            global.email = userEmail
-            global.isLoggedIn = true
-
-        },
     
-
     methods: {
         async handleSignIn() {
         try {
@@ -42,9 +35,10 @@ import { useGlobalStore } from '../../stores/Global'
             this.userEmail = googleUser.getBasicProfile().getEmail();
             const global = useGlobalStore()
             global.email = this.userEmail
-            const param = global.email
-            console.log(global.email)
-            this.$router.push({ path: '/' })
+            global.isLoggedIn = true
+            // console.log(global.email)
+            // console.log(global.isLoggedIn)
+            this.$router.push({ path: '/home' })
 
         } catch (error) {
             console.log(`Error : ${error}`);

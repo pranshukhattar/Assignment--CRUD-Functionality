@@ -26,8 +26,7 @@ const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
 
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
-app.get("", (req, resp) => {
-});
+
 
 function jsonReader(filePath, cb){
     fs.readFile(filePath, "utf-8", (err, fileData) => {
@@ -112,6 +111,19 @@ function save_file(email, filename ,uri){
 
 // save_file("wertet@email", "vvvv")
 
+app.get("/list", (req, res) => {
+    jsonReader ('./db.json', (err,data) => {
+        if(err){
+            return err
+        }
+        else {
+            // console.log('Get File dbData',data)
+            res.send(data)
+            // console.log('Data Sent')
+        }
+    })
+    
+});
 
 app.post('/upload', (req, res) => {
     const params = {
@@ -119,7 +131,7 @@ app.post('/upload', (req, res) => {
         Key: req.files.file.name,
         Body: req.files.file.data
     };
-    
+    fileName = req.files.file.name
     s3.upload(params, (err, data) => {
         if (err) {
             console.error(err);
@@ -127,8 +139,7 @@ app.post('/upload', (req, res) => {
         }
         console.log('File uploaded successfully:', data.Location);
         res.send('File uploaded successfully');
-        fileName = params.key
-        console.log(fileName)
+        console.log("fileNAme", fileName)
         save_file(email_id, fileName, data.location)
     });
 });

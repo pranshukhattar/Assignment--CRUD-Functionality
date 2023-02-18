@@ -5,7 +5,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: HomeView
     },
@@ -18,25 +18,25 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       component: () => import('../views/LoginView.vue')
     },
-    {
-      path: '/upload',
-      name: 'upload',
-      component: () => import('../components/homepage/upload.vue')
-    },
-    {
-      path: '/list',
-      name: 'list',
-      component: () => import('../components/homepage/list.vue')
-    },
-    {
-      path: '/button',
-      name: 'button',
-      component: () => import('../components/common/Signin.vue')
-    },
+    // {
+    //   path: '/upload',
+    //   name: 'upload',
+    //   component: () => import('../components/homepage/upload.vue')
+    // },
+    // {
+    //   path: '/list',
+    //   name: 'list',
+    //   component: () => import('../components/homepage/list.vue')
+    // },
+    // {
+    //   path: '/button',
+    //   name: 'button',
+    //   component: () => import('../components/common/Signin.vue')
+    // },
   ]
 })
 

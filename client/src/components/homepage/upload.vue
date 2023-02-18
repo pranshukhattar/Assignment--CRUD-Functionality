@@ -14,35 +14,42 @@
 <script>
 import { useGlobalStore } from '../../stores/Global';
 export default {
-  data() {
-    return {
-      file: '',
-    };
-  },
-  
-  setup(props) {
+  setup() {
     const global = useGlobalStore()
     return { global }
   },
-  computed: {
+  data() {
+    return {
+      file: '',
+      curEmail : this.setup
+    };
   },
   methods: {
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
     },
     async submitFile() {
+      
       const file = this.file
+      const curEmail = this.curEmail
       const url = 'http://localhost:5005/upload';
       const formData = new FormData();
       formData.append('file', file);
+      console.log(formData)
 
+      const postBody={
+        "FormData": formData,
+        "Email" : curEmail
+      }
+      console.log(this.curEmail)
       const response = await fetch(url, {
         method: 'POST',
-        body: formData
+        body: JSON.stringify(postBody)
       });
 
       if (response.ok) {
         console.log(response)
+        console.log(formData)
         this.$router.go(this.$router.currentRoute); //refresh page
       } else {
         console.error('Error uploading file');

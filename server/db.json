@@ -5,7 +5,13 @@
             "files": [
                 {
                     "fileId": 1,
-                    "url": "qwertyuio"
+                    "fileName": "hello.txt",
+                    "url": "http://localhost:5005/"
+                },
+                {
+                    "fileId": 1,
+                    "fileName": "hello2.txt",
+                    "url": "http://localhost:5005"
                 }
             ]
         },
@@ -14,6 +20,7 @@
             "files": [
                 {
                     "fileId": 1,
+                    "fileName": "bye.txt",
                     "url": "qwertyuio"
                 }
             ]
@@ -23,6 +30,7 @@
             "files": [
                 {
                     "fileId": 1,
+                    "fileName": "seeYou.txt",
                     "url": "qwertyuio"
                 }
             ]
