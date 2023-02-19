@@ -39,7 +39,7 @@ export default {
       });
 
       if (response.ok) {
-        this.$router.go(this.$router.currentRoute);
+        this.$router.go()
       } else {
         console.error('Error uploading file');
       }

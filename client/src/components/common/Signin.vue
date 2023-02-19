@@ -26,19 +26,14 @@ import { useGlobalStore } from '../../stores/Global'
         async handleSignIn() {
         try {
             const googleUser = await this.$gAuth.signIn();
-            // console.log(this.$gAuth.signIn);
-
             if (!googleUser) {
                 return null;
             }
-
             this.userEmail = googleUser.getBasicProfile().getEmail();
             const global = useGlobalStore()
             global.email = this.userEmail
             global.isLoggedIn = true
-            // console.log(global.email)
-            // console.log(global.isLoggedIn)
-            this.$router.push({ path: '/home' })
+            this.$router.push({ name: 'home' })
 
         } catch (error) {
             console.log(`Error : ${error}`);
@@ -48,10 +43,8 @@ import { useGlobalStore } from '../../stores/Global'
         async handleSignOut() {
         try {
             await this.$gAuth.signOut();
-            // console.log(this.$gAuth.signOut);
-
             this.userEmail = '';
-            this.$router.push({ path: '/login' })
+            this.$router.push({ name: 'login' })
         } catch (error) {
             console.log(error);
         }

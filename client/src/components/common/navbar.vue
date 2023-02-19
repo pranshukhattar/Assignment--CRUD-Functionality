@@ -12,7 +12,7 @@ import SignIn from '../common/Signin.vue'
     export default {
         data() {
             return {
-                name: 'Pk'
+                name: ''
             }
         },
         components: {

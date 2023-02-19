@@ -24,7 +24,7 @@ import List from '../components/homepage/list.vue'
         const global = useGlobalStore()
 
         if (!global.isLoggedIn){
-          this.$router.push({ path: '/' })
+          this.$router.push({ name: 'login' })
         }
         else{
           let url = 'http://localhost:5005/list' + `?email=${global.email}`;
