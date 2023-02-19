@@ -12,16 +12,15 @@
 </template>
 
 <script>
-import { useGlobalStore } from '../../stores/Global';
+import { useGlobalStore } from '../../stores/Global'
 export default {
-  setup() {
-    const global = useGlobalStore()
-    return { global }
+  setup(props) {
+      const global = useGlobalStore()
+      return { global }
   },
   data() {
     return {
       file: '',
-      curEmail : this.setup
     };
   },
   methods: {
@@ -29,28 +28,18 @@ export default {
       this.file = this.$refs.file.files[0];
     },
     async submitFile() {
-      
       const file = this.file
-      const curEmail = this.curEmail
-      const url = 'http://localhost:5005/upload';
       const formData = new FormData();
       formData.append('file', file);
-      console.log(formData)
+      formData.append("email", this.global.email);
 
-      const postBody={
-        "FormData": formData,
-        "Email" : curEmail
-      }
-      console.log(this.curEmail)
-      const response = await fetch(url, {
+      const response = await fetch('http://localhost:5005/upload', {
         method: 'POST',
-        body: JSON.stringify(postBody)
+        body: formData
       });
 
       if (response.ok) {
-        console.log(response)
-        console.log(formData)
-        this.$router.go(this.$router.currentRoute); //refresh page
+        this.$router.go(this.$router.currentRoute);
       } else {
         console.error('Error uploading file');
       }

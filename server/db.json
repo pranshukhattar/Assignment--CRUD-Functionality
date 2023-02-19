@@ -1,37 +1,27 @@
 {
     "users": {
-        "fghjkvbh@email": {
-            "idCount": 0,
+        "khattarpranshu.09@gmail.com": {
+            "idCount": 4,
             "files": [
                 {
                     "fileId": 1,
-                    "fileName": "hello.txt",
-                    "url": "http://localhost:5005/"
+                    "fileName": "Churn_Modelling.csv",
+                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/Churn_Modelling.csv"
                 },
                 {
-                    "fileId": 1,
-                    "fileName": "hello2.txt",
-                    "url": "http://localhost:5005"
-                }
-            ]
-        },
-        "lkjhgfdfghj@email": {
-            "idCount": 0,
-            "files": [
+                    "fileId": 2,
+                    "fileName": "netflix_titles_nov_2019.csv",
+                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/netflix_titles_nov_2019.csv"
+                },
                 {
-                    "fileId": 1,
-                    "fileName": "bye.txt",
-                    "url": "qwertyuio"
-                }
-            ]
-        },
-        "aswertet@email": {
-            "idCount": 1,
-            "files": [
+                    "fileId": 3,
+                    "fileName": "1.docx",
+                    "url": "https://pranshubucket99.s3.amazonaws.com/1.docx"
+                },
                 {
-                    "fileId": 1,
-                    "fileName": "seeYou.txt",
-                    "url": "qwertyuio"
+                    "fileId": 4,
+                    "fileName": "test_pranshu_user_accessKeys.csv",
+                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/test_pranshu_user_accessKeys.csv"
                 }
             ]
         }

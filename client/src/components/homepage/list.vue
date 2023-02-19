@@ -6,12 +6,8 @@
             <i class="ri-file-3-fill"></i>
                 <div class="details">
                     <span class="name">
-                        <a href="/login">
-                            {{ url }}
+                        <a :href="file.url">
                             {{ file.fileName }}
-                            <!-- {{ file }} -->
-                            <!-- <i class="ri-checkbox-blank-circle-fill"></i>  -->
-                            - Uploaded
                         </a>
                     </span>
                     <span class="size">{{ size }}</span>
@@ -29,14 +25,7 @@
 <script>
 import { useGlobalStore } from '../../stores/Global'
     export default {
-        props: {
-            file : null,
-        },
-        data() {
-            return {
-                url : ''
-            }
-        },
+        props: ["file"],
         setup(props) {
             const global = useGlobalStore()
         },

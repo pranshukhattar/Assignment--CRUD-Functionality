@@ -1,0 +1,39 @@
+{
+    "users": {
+        "fghjkvbh@email": {
+            "idCount": 0,
+            "files": [
+                {
+                    "fileId": 1,
+                    "fileName": "hello.txt",
+                    "url": "http://localhost:5005/"
+                },
+                {
+                    "fileId": 1,
+                    "fileName": "hello2.txt",
+                    "url": "http://localhost:5005"
+                }
+            ]
+        },
+        "lkjhgfdfghj@email": {
+            "idCount": 0,
+            "files": [
+                {
+                    "fileId": 1,
+                    "fileName": "bye.txt",
+                    "url": "qwertyuio"
+                }
+            ]
+        },
+        "aswertet@email": {
+            "idCount": 1,
+            "files": [
+                {
+                    "fileId": 1,
+                    "fileName": "seeYou.txt",
+                    "url": "qwertyuio"
+                }
+            ]
+        }
+    }
+}

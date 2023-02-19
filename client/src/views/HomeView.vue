@@ -1,8 +1,6 @@
 
 <template>
     <div class="wrapper">
-      <!-- <Navbar /> -->
-      <!-- <h1 >Is Initialized : {{ Vue3GoogleOauth.isInit }}</h1> -->
       <Upload />
       <section class="list" v-for="file in files" :key="file">
         <List :file = file />
@@ -18,40 +16,28 @@ import List from '../components/homepage/list.vue'
     export default {
       data() {
         return {
-          files:[],
-          curEmail: "fghjkvbh@email"
+          files : null
         }
       },
-      components : {
-        Navbar,
-        Upload,
-        List,
-        },
-        // setup(props) {
-        //     const global = useGlobalStore()
-
-        // },
-      mounted() {
+      components : { Navbar, Upload, List, },
+      created() {
         const global = useGlobalStore()
-        // console.log('Global Variable',global.isLoggedIn)
 
         if (!global.isLoggedIn){
           this.$router.push({ path: '/' })
         }
         else{
-          const url = 'http://localhost:5005/list';
+          let url = 'http://localhost:5005/list' + `?email=${global.email}`;
           fetch(url, {
-            method: 'GET',
+            method: 'GET'
           })
           .then(response => response.json())
           .then(data => {
-            // console.log(data.users[this.curEmail].files)
-            this.files = data.users[this.curEmail].files
-            // console.log('HomeView User data',this.files)
-            return data
+            console.log(data)
+            this.files = data.files;
           })
         }
-        }
+      }
     }
 </script>
 
