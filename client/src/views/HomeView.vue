@@ -1,10 +1,14 @@
-
 <template>
     <div class="wrapper">
+      <div class="nav">
+        <!-- <Navbar /> -->
+      </div>
       <Upload />
-      <section class="list" v-for="file in files" :key="file">
-        <List :file = file />
-      </section>
+      <div class="list_section" >
+        <section class="list" v-for="file in files" :key="file" >
+          <List :file = file />
+        </section>
+      </div>
     </div>
 </template>
 
@@ -27,14 +31,16 @@ import List from '../components/homepage/list.vue'
           this.$router.push({ name: 'login' })
         }
         else{
-          let url = 'http://localhost:5005/list' + `?email=${global.email}`;
+          let url = 'http://localhost:5005/' + `?email=${global.email}`;
           fetch(url, {
             method: 'GET'
           })
           .then(response => response.json())
           .then(data => {
-            console.log(data)
-            this.files = data.files;
+            const sorted_files = data.files
+            this.files = sorted_files.sort((a,b) => {
+              return b.fileId - a.fileId
+            });
           })
         }
       }
@@ -42,7 +48,17 @@ import List from '../components/homepage/list.vue'
 </script>
 
 <style scoped>
-  .list{
-    overflow-y: scroll;
-  }
+.nav{
+  position: relative;
+  z-index: 2;
+  /* width: 100vh; */
+  left: 0;
+}
+.list_section{
+  transition: 200ms ease;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 50vh;
+  scrollbar-width: none;
+}
 </style>

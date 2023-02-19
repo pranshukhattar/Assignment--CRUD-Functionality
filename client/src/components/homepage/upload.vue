@@ -1,13 +1,13 @@
 <template>
   <div class="drag-area">
+    <h4>{{ global.email }} </h4>
     <div class="icon"><i class="ri-upload-cloud-fill"></i></div>
-    <header>Drag & Drop to Upload File</header>
+    <header>Click On Browse to Upload File</header>
     <span>OR</span>
     <span class="file-input">
       <input type="file" id="file" ref="file" v-on:change="handleFileUpload()" />
     </span>
     <button v-if="file" v-on:click="submitFile()">Submit</button>
-    <h1>{{ global.email }} </h1>
   </div>
 </template>
 
@@ -115,21 +115,4 @@ input[type= "file"]{
   border-radius: 5px;
   /* margin: 5rem; */
 }
-/* .drag-area img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-    } */
 </style>
-
-// dropArea.classList.add("active"); // this.displayFile(dropArea); //
-dropArea.addEventListener("dragover", (event)=>{ // event.preventDefault();
-//preventing from default behaviour // dropArea.classList.add("active"); //
-dragText.textContent = "Release to Upload File"; // }); //
-dropArea.addEventListener("dragleave", ()=>{ //
-dropArea.classList.remove("active"); // dragText.textContent = "Drag & Drop to
-Upload File"; // }); // dropArea.addEventListener("drop", (event)=>{ //
-event.preventDefault(); //preventing from default behaviour // //getting user
-select file and [0] this means if user select multiple files then we'll select
-only the first one // file = event.dataTransfer.files[0]; // });

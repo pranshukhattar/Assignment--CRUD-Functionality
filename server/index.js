@@ -84,24 +84,52 @@ function save_file(email, uri, filename) {
     })
 }
 
-app.get("/list", (req, res) => {
+app.get("", (req, res) => {
     let email = req.query.email;
     jsonReader('./db.json', (err, data) => {
         if (err) {
             return err
         }
         else {
-            console.log(data)
             let user_data = data.users[email];
-            console.log(user_data)
             if(!user_data)
-            user_data = [];
-            console.log(user_data)
+                user_data = [];
             res.send(user_data)
         }
     })
 
 });
+
+app.delete("", (req, res) => {
+    let email = req.query.email;
+    let id = req.query.file_id;
+    jsonReader('./db.json', (err, data) => {
+        if (err) {
+            return err
+        }
+        else {
+            let file_index = -1;
+            for(let i =0 ; i<data.users[email].files.length; i++){
+                let file = data.users[email].files[i]
+                console.log(file.fileId)
+                console.log(typeof(file.fileId))
+                if(file.fileId == id){
+                    file_index = i
+                    break;
+                }
+            }
+            const files = data.users[email].files
+            console.log('Files Var',files)
+            files.splice(file_index, 1)
+            data.users[email].files = files
+            fs.writeFile("./db.json", JSON.stringify(data, null, 4), err => {
+                console.log('--------------------File Deleted ------------------------ ')
+                if (err) console.log(err)
+            })
+            res.send('File Deleted')
+        }
+    })
+})
 
 app.post('/upload', (req, res) => {
     const params = {

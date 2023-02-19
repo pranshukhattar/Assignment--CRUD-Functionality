@@ -1,19 +1,24 @@
 <template>
     <div class="nav-wrapper">
-            <SignIn />
         <span>
-            Hi, {{ name }}
+            Hi, {{ user_name }}
         </span>
+            <SignIn />
     </div>
 </template>
 
 <script>
+import { useGlobalStore } from '../../stores/Global'
 import SignIn from '../common/Signin.vue'
     export default {
         data() {
             return {
-                name: ''
+                user_name: ''
             }
+        },
+        setup() {
+            const global = useGlobalStore()
+            // this.user_name = global.name
         },
         components: {
             SignIn,
@@ -21,20 +26,19 @@ import SignIn from '../common/Signin.vue'
     }
 </script>
 <style scoped>
-.wrapper{
-    width: 500px;
-    height: 10em;
-    /* max-height: 5em; */
+.nav-wrapper{
+    margin:0.5em 0;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-  .wrapper span{
+.nav-wrapper span{
     display: inline-block;
     width: 100%;
     height: 100%;
     font-size: 2em;
-    padding: 0;
-    text-align: center;
-    margin-bottom: 0.5em;
-    border: 1px solid white;
-    border-radius: 5px;
-  }
+    padding: 0.5em;
+}
 </style>

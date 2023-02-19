@@ -1,62 +1,17 @@
 {
     "users": {
         "khattarpranshu.09@gmail.com": {
-            "idCount": 11,
+            "idCount": 12,
             "files": [
                 {
-                    "fileId": 1,
-                    "fileName": "Churn_Modelling.csv",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/Churn_Modelling.csv"
-                },
-                {
-                    "fileId": 2,
-                    "fileName": "netflix_titles_nov_2019.csv",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/netflix_titles_nov_2019.csv"
-                },
-                {
-                    "fileId": 3,
-                    "fileName": "1.docx",
-                    "url": "https://pranshubucket99.s3.amazonaws.com/1.docx"
-                },
-                {
-                    "fileId": 4,
-                    "fileName": "test_pranshu_user_accessKeys.csv",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/test_pranshu_user_accessKeys.csv"
-                },
-                {
                     "fileId": 5,
-                    "fileName": "Frontend assignment.docx",
-                    "url": "https://pranshubucket99.s3.amazonaws.com/Frontend%20assignment.docx"
+                    "fileName": "maths missed.pdf",
+                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/maths+missed.pdf"
                 },
                 {
-                    "fileId": 6,
-                    "fileName": "Frontend assignment.docx",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/Frontend%20assignment.docx"
-                },
-                {
-                    "fileId": 7,
-                    "fileName": "premium-scooters-inspection-sample-report.pdf",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/premium-scooters-inspection-sample-report.pdf"
-                },
-                {
-                    "fileId": 8,
-                    "fileName": "NASAHiddenUniverse.themepack",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/NASAHiddenUniverse.themepack"
-                },
-                {
-                    "fileId": 9,
-                    "fileName": "CaptainAmerica.themepack",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/CaptainAmerica.themepack"
-                },
-                {
-                    "fileId": 10,
-                    "fileName": "client_secret_457048656423-vhgchqdgdibgjc7o5f00320n5ifai74e.apps.googleusercontent.com.json",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/client_secret_457048656423-vhgchqdgdibgjc7o5f00320n5ifai74e.apps.googleusercontent.com.json"
-                },
-                {
-                    "fileId": 11,
-                    "fileName": "how to opwn .6 server from wan.docx",
-                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/how%20to%20opwn%20.6%20server%20from%20wan.docx"
+                    "fileId": 12,
+                    "fileName": "SAS (isha t2).pdf",
+                    "url": "https://pranshubucket99.s3.ap-northeast-1.amazonaws.com/SAS+%28isha+t2%29.pdf"
                 }
             ]
         }
