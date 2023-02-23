@@ -1,12 +1,11 @@
-process.env.AWS_ACCESS_KEY_ID = "AKIA6NXJK32XHKRPSU5J"
-process.env.AWS_SECRET_ACCESS_KEY = "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"
-
-
-var express = require('express')
+require('dotenv').config()
+const express = require('express')
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const app = express();
 const fs = require('fs')
+
+// console.log(process.env.port)
 
 app.use(cors({
     origin: '*',

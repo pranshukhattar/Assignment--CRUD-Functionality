@@ -46,6 +46,9 @@ import { useGlobalStore } from '../../stores/Global';
                 })
             }
         },
+        created() {
+            console.log("LIst Create",this.file)
+        },
     }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="button-wrapper">
-        <button v-if="!isLoggedIn" type="button" class="google-btn" :class="{ notActive : isLogged}" @click="handleSignIn">
+        <button v-if="!userEmail" type="button" class="google-btn" :class="{ notActive : isLogged}" @click="handleSignIn">
             Sign in with Google
         </button>
         <button type="button noback" v-if="userEmail" @click="handleSignOut">
@@ -11,54 +11,61 @@
 </template>
 
 <script>
-import { inject } from '@vue/runtime-core'
+// import { inject } from '@vue/runtime-core'
 import { useGlobalStore } from '../../stores/Global'
+import { getGoogleUrl } from '../../Utils/getGoogleUrl'
     export default {
-        
-
-    data() {
-        return {
-        userEmail: '',
+        data() {
+            return {
+                userEmail: '',
+                from: '/'
         }
     },
     methods: {
         async handleSignIn() {
         try {
-            const googleUser = await this.$gAuth.signIn();
-            if (!googleUser) {
-                return null;
-            }
-            this.userEmail = googleUser.getBasicProfile().getEmail();
-            const global = useGlobalStore()
-            global.name=googleUser.getBasicProfile().getName()
-            global.email = this.userEmail
-            global.isLoggedIn = true
-            // const { isDark } = storeToRefs(themeStore);
-            this.$router.push({ name: 'home' })
+            console.log(this.from)
+            getGoogleUrl(this.from)
+            // const googleUser = await this.$gAuth.signIn();
+            // if (!googleUser) {
+            //     return null;
+            // }
+            // this.userEmail = googleUser.getBasicProfile().getEmail();
+            // const global = useGlobalStore()
+            // global.email = this.userEmail
+            // global.isLoggedIn = !global.isLoggedIn
+            // this.$router.push({ name: 'home' })
 
         } catch (error) {
             console.log(`Error : ${error}`);
             return null;
         }
         },
-        async handleSignOut() {
+        handleSignOut() {
         try {
-            await this.$gAuth.signOut();
+            this.$gAuth.signOut();
+            const global = useGlobalStore()
             this.userEmail = '';
-            this.$router.push({ name: 'login' })
+            global.email = this.userEmail
+            global.isLoggedIn = !global.isLoggedIn
+            this.$router.go({ name: 'login' })
         } catch (error) {
             console.log(error);
         }
         }
     },
 
-    setup() {
-        const Vue3GoogleOauth = inject('Vue3GoogleOauth');
+    // setup() {
+    //     const Vue3GoogleOauth = inject('Vue3GoogleOauth');
 
-        return {
-        Vue3GoogleOauth,
-        };
-    }
+    //     return {
+    //     Vue3GoogleOauth,
+    //     };
+    // },
+    beforeMount() {
+        const global = useGlobalStore()
+        this.userEmail = global.email  
+    },
 }
 </script>
 

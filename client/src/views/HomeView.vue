@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
       <div class="nav">
-        <!-- <Navbar /> -->
+        <Navbar />
       </div>
       <Upload />
       <div class="list_section" >
@@ -48,6 +48,9 @@ import List from '../components/homepage/list.vue'
 </script>
 
 <style scoped>
+.wrapper{
+  margin:2% auto;
+}
 .nav{
   position: relative;
   z-index: 2;
